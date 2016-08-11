@@ -1,0 +1,7 @@
+<%=link_to "Crear comentario", new_tweet_comment_path(@tweet)%>
+
+<%= form_for  [@tweet, @comment] do |f| %>
+<%=f.label :content, "Comentario" %>
+<%=f.text_field :content %>
+<%=f.submit %>
+<%end%>

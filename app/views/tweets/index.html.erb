@@ -1,0 +1,21 @@
+
+<h1>Lista de tweet's</h1>
+<%= link_to "Nuevo Tweet", new_tweet_path %>
+<ul>
+    <% @tweets.each do |t|%>
+    
+    	<li> 
+     <h3> <strong> <%= t.title  %> </strong> </h3>
+        <p> <%= t.message %> </p>
+        <%= link_to 'Editar', edit_tweet_path(t) %>
+      	<%= link_to 'Eliminar', t, method: :delete, data: { confirm: 'estas seguro ?' } %> 
+      	<%=link_to "Detalles", t %></li>
+          <ol>
+            <% @comments = t.comments.all  %>
+              <% @comments.each do |comment| %>
+              <li><%= comment.content  %></li>
+              <% end %>
+          </ol>
+   
+    <% end %>
+</ul>

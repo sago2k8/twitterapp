@@ -1,0 +1,19 @@
+<h1>Lista de usuarios</h1>
+<%= link_to "Nuevo usario", new_user_path %>
+<ul>
+    <% @users.each do |t|%>
+    
+    	<li> 
+        <p> <%= t.email %> </p>
+        <%= link_to 'Editar', edit_user_path(t) %>
+      	<%= link_to 'Eliminar', t, method: :delete, data: { confirm: 'estas seguro ?' } %> 
+      	<%=link_to "Detalles", t %></li>
+          <ol>
+            <% @tweets = t.tweets.all  %>
+              <% @tweets.each do |tweet| %>
+              <li><%= link_to tweet.message , tweet_path(t)  %></li>
+              <% end %>
+          </ol>
+   
+    <% end %>
+</ul>

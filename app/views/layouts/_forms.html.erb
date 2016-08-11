@@ -1,0 +1,17 @@
+
+<div class= 'starter-template'></div>
+<%= form_for @tweet do |t| %>
+<p>
+	<%=t.label :title%><br>
+	<%=t.text_field :title %>
+</p>
+<p> 	
+	<%= t.label :message %><br>
+	<%= t.text_field :message%>
+</p>
+
+<p>
+	<%= t.submit %>
+</p>
+
+<% end %>
